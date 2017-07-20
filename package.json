@@ -1,0 +1,40 @@
+{
+  "name": "simpl-schema-to-redux-form",
+  "version": "0.0.1",
+  "description": "SimpleSchema to Redux Form",
+  "main": "index.js",
+  "repository": "https://github.com/PEM--/simpl-schema-to-redux-form.git",
+  "author": "PEM-- <pemarchandet@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "test": "jest",
+    "test.watch": "jest --watch --notify",
+    "lint": "standard --global it --global 'expect **/*.js' | snazzy",
+    "lint.fix": "standard --global it --global expect '**/*.js' --fix"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-preset-latest": "^6.24.1",
+    "husky": "^0.14.3",
+    "jest": "^20.0.4",
+    "standard": "^10.0.2"
+  },
+  "peerDependencies": {
+    "simpl-schema": "^0.3.1"
+  },
+  "standard.options": {
+    "globals": [
+      "it",
+      "expect"
+    ],
+    "ignore": [
+      "node_modules/**"
+    ],
+    "plugins": [
+      "class-property",
+      "html"
+    ],
+    "parser": "babel-eslint"
+  }
+}
