@@ -12,7 +12,8 @@
     "test": "jest",
     "test.watch": "jest --watch --notify",
     "lint": "standard --global it --global expect 'src/*.js' | snazzy",
-    "lint.fix": "standard --global it --global expect 'src/*.js' --fix"
+    "lint.fix": "standard --global it --global expect 'src/*.js' --fix",
+    "precommit": "npm lint; npm test"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -21,7 +22,8 @@
     "husky": "^0.14.3",
     "jest": "^20.0.4",
     "snazzy": "^7.0.0",
-    "standard": "^10.0.2"
+    "standard": "^10.0.2",
+    "storybook": "^0.0.0"
   },
   "dependencies": {
     "dot-object": "^1.6.0",
