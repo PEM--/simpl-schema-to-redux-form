@@ -7,8 +7,7 @@
   "author": "PEM-- <pemarchandet@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "build": "babel --presets latest src -d ./ --ignore src/index.test.js",
-    "dev": "babel --presets latest src -d ./ --watch --ignore src/index.test.js",
+    "build": "rollup -c",
     "test": "jest",
     "test.watch": "jest --watch --notify",
     "lint": "standard --global it --global expect 'src/*.js' | snazzy",
@@ -18,12 +17,18 @@
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
-    "babel-preset-latest": "^6.24.1",
+    "babel-preset-env": "^1.6.0",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
+    "rollup": "^0.45.2",
+    "rollup-plugin-babel": "^2.7.1",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-uglify": "^2.0.1",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2",
-    "storybook": "^0.0.0"
+    "storybook": "^0.0.0",
+    "uglify-es": "^3.0.25"
   },
   "dependencies": {
     "dot-object": "^1.6.0",
