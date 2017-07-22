@@ -1,0 +1,7 @@
+{
+  "javascript.validate.enable": false,
+  "standard.workingDirectories": ["./src"],
+  "standard.options": {
+    "globals": ["it", "expect"]
+  }
+}
