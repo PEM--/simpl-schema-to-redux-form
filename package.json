@@ -39,7 +39,7 @@
   },
   "dependencies": {
     "dot-object": "^1.6.0",
-    "simpl-schema": "^0.3.0"
+    "simpl-schema": "^0.3.1"
   },
   "standard.options": {
     "globals": [
