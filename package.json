@@ -13,7 +13,7 @@
     "test.watch": "jest --watch --notify",
     "lint": "standard --global it --global expect 'src/*.js' | snazzy",
     "lint.fix": "standard --global it --global expect 'src/*.js' --fix",
-    "precommit": "npm lint; npm test"
+    "precommit": "npm run lint; npm test"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
