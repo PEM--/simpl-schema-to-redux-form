@@ -1,3 +1,3 @@
-it('should failed', () => {
-  expect(false).toBe(true)
+it('should succeed', () => {
+  expect(true).toBe(true)
 })
