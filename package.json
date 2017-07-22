@@ -8,24 +8,30 @@
   "license": "MIT",
   "scripts": {
     "build": "NODE_ENV='production' rollup -c",
-    "dev": "rollup -c",
-    "test": "jest",
-    "test.watch": "jest --watch --notify",
+    "dev": "NODE_ENV='development' rollup -c",
+    "dev.watch": "NODE_ENV='development' rollup -c --watch",
+    "watch": "npm-run-all --parallel dev.watch test.watch",
+    "test": "NODE_ENV='testing' jest",
+    "test.watch": "NODE_ENV='testing' jest --watch --notify",
     "lint": "standard --global it --global expect 'src/*.js' | snazzy",
     "lint.fix": "standard --global it --global expect 'src/*.js' --fix",
     "prepush": "npm run lint && npm test"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
+    "babel-jest": "^20.0.3",
     "babel-plugin-transform-object-rest-spread": "^6.23.0",
     "babel-preset-env": "^1.6.0",
+    "babel-preset-es2015": "^6.24.1",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
+    "npm-run-all": "^4.0.2",
     "rollup": "^0.45.2",
     "rollup-plugin-babel": "^2.7.1",
     "rollup-plugin-commonjs": "^8.0.2",
     "rollup-plugin-node-resolve": "^3.0.0",
     "rollup-plugin-uglify": "^2.0.1",
+    "rollup-watch": "^4.3.1",
     "snazzy": "^7.0.0",
     "standard": "^10.0.2",
     "storybook": "^0.0.0",
@@ -48,5 +54,17 @@
       "html"
     ],
     "parser": "babel-eslint"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "testMatch": [
+      "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
+    ],
+    "moduleFileExtensions": [
+      "js",
+      "jsx"
+    ]
   }
 }
