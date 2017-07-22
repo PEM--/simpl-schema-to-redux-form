@@ -7,10 +7,12 @@
   "author": "PEM-- <pemarchandet@gmail.com>",
   "license": "MIT",
   "scripts": {
+    "build": "babel --presets latest src -d ./ --ignore src/index.test.js",
+    "dev": "babel --presets latest src -d ./ --watch --ignore src/index.test.js",
     "test": "jest",
     "test.watch": "jest --watch --notify",
-    "lint": "standard --global it --global 'expect **/*.js' | snazzy",
-    "lint.fix": "standard --global it --global expect '**/*.js' --fix"
+    "lint": "standard --global it --global expect 'src/*.js' | snazzy",
+    "lint.fix": "standard --global it --global expect 'src/*.js' --fix"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
@@ -18,9 +20,11 @@
     "babel-preset-latest": "^6.24.1",
     "husky": "^0.14.3",
     "jest": "^20.0.4",
+    "snazzy": "^7.0.0",
     "standard": "^10.0.2"
   },
-  "peerDependencies": {
+  "dependencies": {
+    "dot-object": "^1.6.0",
     "simpl-schema": "^0.3.1"
   },
   "standard.options": {
