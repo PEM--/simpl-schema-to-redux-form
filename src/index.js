@@ -35,7 +35,7 @@ export const simpleSchemaToReduxFormValidator = (schema, ctx) => (values) => {
     return { ...acc, [ssError.name]: ssMsg }
   }, {})
   return dot.object(rfRes)
-};
+}
 
 const validator = simpleSchemaToReduxFormValidator(schema, ctx)
 const res = validator({
