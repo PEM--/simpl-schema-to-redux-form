@@ -1,4 +1,5 @@
 import resolve from 'rollup-plugin-node-resolve'
+import commonjs from 'rollup-plugin-commonjs'
 import babel from 'rollup-plugin-babel'
 import uglify from 'rollup-plugin-uglify'
 import { minify } from 'uglify-es'
@@ -15,11 +16,14 @@ export default {
   },
   plugins: [
     resolve({
+      jsnext: true,
+      main: true,
       preferBuiltins: true,
       browser: true,
       modulesOnly: true
     }),
+    commonjs(),
     babel({ exclude: 'node_modules/**' }),
-    uglify({}, minify)
+    (process.env.NODE_ENV === 'production' && uglify({}, minify))
   ]
 }
