@@ -29,5 +29,5 @@ The created `validate` function exposes 2 members: `values`, `errors`.
 In development, you can log each call to the validation function by passing a logger.
 
 ```
-const validate = simpleSchemaToReduxFormValidator(ctx, console.log)
+const validate = simpleSchemaToReduxFormValidator(ctx, console)
 ```
