@@ -11,10 +11,17 @@ export default {
     format: 'umd'
   },
   name: 'simpl-schema-to-redux-form',
-  external: ['simpl-schema', 'dot-object'],
+  external: [
+    'dot-object',
+    'moize',
+    'react',
+    'simpl-schema'
+  ],
   globals: {
-    'simpl-schema': 'SimpleSchema',
-    'dot-object': 'dot'
+    'dot-object': 'dot',
+    moize: 'moize',
+    react: 'React',
+    'simpl-schema': 'SimpleSchema'
   },
   plugins: [
     resolve({
@@ -25,7 +32,10 @@ export default {
       modulesOnly: true
     }),
     commonjs(),
-    babel({ exclude: 'node_modules/**' }),
+    babel({
+      exclude: 'node_modules/**',
+      plugins: ['external-helpers']
+    }),
     (process.env.NODE_ENV === 'production' && uglify({}, minify))
   ]
 }
