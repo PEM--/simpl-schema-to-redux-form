@@ -1,0 +1,39 @@
+parser: babel-eslint
+env:
+  browser: true
+  jest: true
+globals:
+  window: true
+  document: true
+  FormData: true
+  Image: true
+  fetch: true
+  Assets: true
+  Promise: true
+parserOptions:
+  ecmaFeatures:
+    classes: true
+    jsx: true
+settings:
+  react:
+    version: 15.6.1
+plugins:
+  - meteor
+  - class-property
+  - standard
+extends:
+  - eslint:recommended
+  - plugin:react/recommended
+  - plugin:import/errors
+  - plugin:import/warnings
+  - standard
+rules:
+  class-methods-use-this: 0
+  import/no-absolute-path: 0
+  import/order: [2, { "groups": [ "builtin", "external", "parent", "sibling", "index" ], "newlines-between": "always" }]
+  no-underscore-dangle: 0
+  no-console: 2
+  react/forbid-prop-types: 0
+  react/require-default-props: 0
+  react/require-extension: 0
+  react/display-name: 0

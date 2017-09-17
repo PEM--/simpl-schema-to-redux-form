@@ -1,4 +1,5 @@
 import SimpleSchema from 'simpl-schema'
+
 import { simpleSchemaToReduxFormValidator } from '../../index.min'
 
 SimpleSchema.setDefaultMessages({
