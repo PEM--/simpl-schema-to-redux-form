@@ -1,5 +1,5 @@
 import SimpleSchema from 'simpl-schema'
-import { simpleSchemaToReduxFormValidator } from '../index.min'
+import { simpleSchemaToReduxFormValidator } from '../../index.min'
 
 SimpleSchema.setDefaultMessages({
   initialLanguage: 'en',
