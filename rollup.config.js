@@ -21,6 +21,7 @@ export default {
     'moize',
     'prop-types',
     'react',
+    'react-dom',
     'simpl-schema'
   ],
   globals: {
@@ -32,6 +33,7 @@ export default {
     moize: 'moize',
     'prop-types': 'PropTypes',
     react: 'React',
+    'react-dom': 'React.DOM',
     'fbjs/lib/shallowEqual': 'shallowEqual',
     'simpl-schema': 'SimpleSchema'
   },

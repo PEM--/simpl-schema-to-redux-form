@@ -10,7 +10,6 @@ import { formFieldFactory } from './formFieldFactory'
 class Autoform {
   constructor (options) {
     this.options = {
-      defaultComponent: React.DOM.input,
       modelFieldTransformer: this.defaultModelFieldTransformer,
       ...options
     }
