@@ -7,6 +7,11 @@
 
 SimpleSchema to Redux Form
 
+## Installation
+```
+yarn add simpl-schema-to-redux-form
+```
+
 ## Create a validation context
 ```
 import SimpleSchema from 'simpl-schema'

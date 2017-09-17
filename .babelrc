@@ -1,15 +1,15 @@
 {
   "env": {
     "testing": {
-      "presets": ["es2015"],
+      "presets": ["env"],
       "plugins": ["transform-object-rest-spread"]
     },
     "development": {
-      "presets": [[ "es2015", { "modules": false } ]],
+      "presets": [[ "env", { "modules": false } ]],
       "plugins": ["transform-object-rest-spread"]
     },
     "production": {
-      "presets": [[ "es2015", { "modules": false } ]],
+      "presets": [[ "env", { "modules": false } ]],
       "plugins": ["transform-object-rest-spread"]
     }
   }
