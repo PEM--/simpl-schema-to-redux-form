@@ -59,10 +59,10 @@ class Autoform {
       pure
     )(({ className, formFields, handleSubmit, pristine, submitting, valid, isCompany }) => (
       <form className={className} onSubmit={handleSubmit}>
-        <div className='formFields'>
+        <div className='FormFields'>
           {Object.keys(formFields())
             .map(lineKey =>
-              <div className='fieldGroup' key={lineKey}>
+              <div className='FormFieldGroup' key={lineKey}>
                 {Object.keys(formFields()[lineKey]).map(fieldKey =>
                   <Field key={formFields()[lineKey][fieldKey].name} submitting={submitting} {...formFields()[lineKey][fieldKey]} />
                 )}
