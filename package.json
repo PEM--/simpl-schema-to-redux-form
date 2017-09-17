@@ -15,7 +15,7 @@
     "test.watch": "NODE_ENV='testing' jest --watch --notify",
     "test.prod": "NODE_ENV='production' jest",
     "lint": "eslint  -c ./.eslintrc  --ext .jsx --ext .js ./src",
-    "prepush": "yarn lint && yarn test.prod"
+    "prepush": "npm run lint && npm run test.prod"
   },
   "devDependencies": {
     "ajv": "^5.2.2",
