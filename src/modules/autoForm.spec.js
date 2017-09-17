@@ -14,8 +14,7 @@ const config = {
     otherKeys: { type: String }
   },
   modelFieldTransformer: (model, fieldName) => ({ ...model[fieldName] }),
-  ValidationButton: React.DOM.button,
-  CancellationButton: React.DOM.button,
+  validationButton: <React.DOM.button />,
   formFields: {
     firstLine: {
       fieldGroup: {

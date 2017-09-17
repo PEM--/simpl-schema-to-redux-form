@@ -1,6 +1,6 @@
 {
   "name": "simpl-schema-to-redux-form",
-  "version": "1.0.1",
+  "version": "2.0.0",
   "description": "SimpleSchema to Redux Form",
   "main": "index.min.js",
   "repository": "https://github.com/PEM--/simpl-schema-to-redux-form.git",

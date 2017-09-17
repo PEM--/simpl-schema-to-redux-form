@@ -12,15 +12,27 @@ export default {
   },
   name: 'simpl-schema-to-redux-form',
   external: [
+    'change-emitter',
     'dot-object',
+    'fbjs/lib/shallowEqual',
+    'hoist-non-react-statics',
+    'invariant',
+    'is-promise',
     'moize',
+    'prop-types',
     'react',
     'simpl-schema'
   ],
   globals: {
+    'change-emitter': 'changeEmitter',
     'dot-object': 'dot',
+    'hoist-non-react-statics': 'hoistStatics',
+    invariant: 'invariant',
+    'is-promise': 'isPromise',
     moize: 'moize',
+    'prop-types': 'PropTypes',
     react: 'React',
+    'fbjs/lib/shallowEqual': 'shallowEqual',
     'simpl-schema': 'SimpleSchema'
   },
   plugins: [
