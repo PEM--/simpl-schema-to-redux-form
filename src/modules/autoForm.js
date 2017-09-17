@@ -17,6 +17,7 @@ class Autoform {
     this.model = this.options.model
     this.modelFieldTransformer = this.options.modelFieldTransformer
     this.validationButton = this.options.validationButton
+    this.defaultComponent = this.options.defaultComponent
   }
   defaultModelFieldTransformer = (model, fieldName) =>
     ({ ...model[`${fieldName}.current`], optional: true })
@@ -42,15 +43,16 @@ class Autoform {
             ({ [key]: factory({ name: key, ...props, hasValidation: false }) })
           const validate = simpleSchemaToReduxFormValidator(ctx)
           return {
-            formFields: moize(() => ({
-              firstLine: {
-                ...keyFactory('description', { others: { noLabel: true, autoFocus: true } }),
-                ...keyFactory('location', { others: { noLabel: true } })
-              },
-              secondLine: {
-                ...keyFactory('comments', { others: { noLabel: true } })
-              }
-            }), { maxArgs: 0 }),
+            formFields: moize(() => this.fieldGroups().reduce((formGroup, lineKey) => {
+              formGroup[lineKey] = Object.keys(this.formFields[lineKey].fieldGroup).reduce((lineComp, compKey) => ({
+                ...lineComp,
+                ...keyFactory(compKey, {
+                  ...this.formFields[lineKey].fieldGroup[compKey].reduxFormFieldProps,
+                  others: this.formFields[lineKey].fieldGroup[compKey].componentProps
+                })
+              }), {})
+              return formGroup
+            }, {}), { maxArgs: 0 }),
             validate
           }
         }
@@ -60,15 +62,13 @@ class Autoform {
     )(({ className, formFields, handleSubmit, pristine, submitting, valid, isCompany }) => (
       <form className={className} onSubmit={handleSubmit}>
         <div className='FormFields'>
-          {Object.keys(formFields())
-            .map(lineKey =>
-              <div className='FormFieldGroup' key={lineKey}>
-                {Object.keys(formFields()[lineKey]).map(fieldKey =>
-                  <Field key={formFields()[lineKey][fieldKey].name} submitting={submitting} {...formFields()[lineKey][fieldKey]} />
-                )}
-              </div>
-            )
-          }
+          {this.fieldGroups().map(lineKey =>
+            <div className='FormFieldGroup' key={lineKey}>
+              {Object.keys(formFields()[lineKey]).map(fieldKey =>
+                <Field key={formFields()[lineKey][fieldKey].name} submitting={submitting} {...formFields()[lineKey][fieldKey]} />
+              )}
+            </div>
+          )}
         </div>
         <div className='FormActions'>
           {cloneElement(this.validationButton, {
