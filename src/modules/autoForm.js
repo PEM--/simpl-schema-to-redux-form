@@ -9,15 +9,11 @@ import { formFieldFactory } from './formFieldFactory'
 
 class Autoform {
   constructor (options) {
-    this.options = {
+    const optionsWithDefault = {
       modelFieldTransformer: this.defaultModelFieldTransformer,
       ...options
     }
-    this.formFields = this.options.formFields
-    this.model = this.options.model
-    this.modelFieldTransformer = this.options.modelFieldTransformer
-    this.validationButton = this.options.validationButton
-    this.defaultComponent = this.options.defaultComponent
+    Object.assign(this, optionsWithDefault)
   }
   defaultModelFieldTransformer = (model, fieldName) =>
     ({ ...model[`${fieldName}.current`], optional: true })
