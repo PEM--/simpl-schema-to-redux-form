@@ -1,16 +1,21 @@
 {
   "env": {
     "testing": {
-      "presets": ["env"],
+      "presets": ["env", "stage-1", "react"],
       "plugins": ["transform-object-rest-spread"]
     },
     "development": {
-      "presets": [[ "env", { "modules": false } ]],
+      "presets": [[ "env", { "modules": false } ], "stage-1", "react"],
       "plugins": ["transform-object-rest-spread"]
     },
     "production": {
-      "presets": [[ "env", { "modules": false } ]],
-      "plugins": ["transform-object-rest-spread"]
+      "presets": [[ "env", { "modules": false } ], "stage-1", "react"],
+      "plugins": [
+        "transform-object-rest-spread",
+        "transform-react-constant-elements",
+        "transform-react-inline-elements",
+        "transform-react-remove-prop-types"    
+      ]
     }
   }
 }
