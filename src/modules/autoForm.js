@@ -7,14 +7,12 @@ class Autoform {
       defaultComponent: React.DOM.input,
       ...options
     }
-    this.modelKeys = moize(() => {
-      const { formFields } = this.options
-      const fieldGroups = Object.keys(formFields)
-      const modelKeys = fieldGroups.reduce((acc, key) =>
-        acc.concat(Object.keys(formFields[key].fieldGroup)),
-      [])
-      return modelKeys
-    }, { maxArgs: 0 })
+    this.formFields = this.options.formFields
   }
+  fieldGroups = moize(() => Object.keys(this.formFields), { maxArgs: 0 })
+  modelKeys = moize(() =>
+    this.fieldGroups().reduce((acc, key) =>
+      acc.concat(Object.keys(this.formFields[key].fieldGroup)),
+    []), { maxArgs: 0 })
 }
 export default Autoform
